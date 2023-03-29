@@ -3,6 +3,7 @@
 
     function format_skill(skill) {
         // TODO: Link
+
         let skill_text = skill.name + " ";
         skill_text += format_number(skill.value)
         skill_text += format_modifiers(skill)
@@ -18,11 +19,10 @@
     }
 
     export let skills;
-    let skills_text = format_skills(skills);
 </script>
 
 <skills>
-    <b>Skills</b> {skills_text}
+    <b>Skills</b> {format_skills(skills)}
 </skills>
 
 <style>

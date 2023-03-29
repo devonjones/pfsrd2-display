@@ -1,8 +1,14 @@
 <script>
+    // TODO: creature_type.rarity
+    // TODO: creature_type.alignment
+    // TODO: creature_type.size
+    // TODO: creature_type.creature_types
+    // TODO: creature_type.pfs
+    // TODO: creature_type.family
+    // TODO: creature_type.grafts
+
     import Ability from './Ability.svelte';
     import Gear from './Gear.svelte';
-	import Sources from './Sources.svelte';
-	import Knowledge from './Knowledge.svelte';
 	import Senses from './Senses.svelte';
 	import Languages from './Languages.svelte';
 	import Skills from './Skills.svelte';
@@ -11,10 +17,6 @@
 </script>
 
 <top_matter>
-    <Sources sources={stat_block.sources}/>
-    {#if stat_block.creature_type.knowledge}
-        <Knowledge knowledges={stat_block.creature_type.knowledge}/>
-    {/if}
     <Senses senses={stat_block.senses}/>
     {#if stat_block.statistics.languages}
         <Languages languages={stat_block.statistics.languages}/>
@@ -34,7 +36,7 @@
 </top_matter>
 
 <style>
-	top_matter {
+    top_matter {
 		padding: 1em;
         display: flex;
         flex-direction: column;

@@ -1,9 +1,9 @@
 <script>
 	import {format_saving_throw, format_number, format_text_semi} from './monsterlib';
-    import SpellList from './SpellList.svelte';
-    // TODO: spell_list
 
     function format_spells(spells) {
+        // TODO: name ?
+
         let spells_text = "";
         let textlist = []
         if (spells.saving_throw) {
@@ -26,6 +26,7 @@
 
     function format_spell_list_name(spell_list) {
         // TODO: level?
+
         let spell_list_text = "";
         if (spell_list.cantrips) {
             spell_list_text += "Cantrips " + spell_list.level_text
@@ -38,6 +39,8 @@
     }
 
     function format_spell(spell) {
+        //TODO: Links
+
         let spell_text = "";
         spell_text += spell.name;
         if (spell.count_text) {
@@ -50,6 +53,7 @@
 
     function format_spell_list(spells) {
         //TODO: Links
+
         let spells_list = []
         for (let spell of spells) {
             spells_list.push(format_spell(spell));

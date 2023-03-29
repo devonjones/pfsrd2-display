@@ -8,25 +8,21 @@
     }
 
     function format_save(save) {
-        // TODO: Format this manually instead of using text
+        // TODO: Name?
+
         let save_text = format_number(save.value);
         save_text += format_modifiers(save)
         return save_text;
     }
 
     export let defense;
-    let ac_text = format_ac(defense.ac);
-    let fort_text = format_save(defense.saves.fort)
-    let ref_text = format_save(defense.saves.ref)
-    let will_text = format_save(defense.saves.will)
-    let modifiers_text = format_modifiers(defense.saves, false)
 </script>
 
 <armor>
-    <b>AC</b> {ac_text};
-    <b>Fort</b> {fort_text},
-    <b>Ref</b> {ref_text},
-    <b>Will</b> {will_text}; {modifiers_text}
+    <b>AC</b> {format_ac(defense.ac)};
+    <b>Fort</b> {format_save(defense.saves.fort)},
+    <b>Ref</b> {format_save(defense.saves.ref)},
+    <b>Will</b> {format_save(defense.saves.will)}; {format_modifiers(defense.saves, false)}
 </armor>
 
 <style>

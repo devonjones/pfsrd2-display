@@ -1,4 +1,10 @@
 <script>
+    // TODO: All the trait details
+    // TODO: Sources
+    // TODO: game-obj, game-id
+    // TODO: text
+    // TODO: links
+
     function set_classes(trait) {
         let classes = trait.classes.join(" ")
         if (trait.classes.includes('rarity')) {
@@ -31,34 +37,34 @@
 	}
 
     .uncommon {
-        background-color: #c45500;
+        background-color: #98503c;
     }
 
     .rare {
-        background-color: #0c1466;
+        background-color: #00338a;
     }
 
     .unique {
-        background-color: #800080;
+        background-color: #711d93;
     }
     
     .alignment {
-        background-color: #4287f5;
+        background-color: #6c7ab9;
     }
 
     .size {
-        background-color: #478c42;
+        background-color: #4ca073;
     }
 
     .creature_type {
-        background-color: #522e2c;
+        background-color: #5d0000;
     }
 
     .ancestry {
-        background-color: #522e2c;
+        background-color: #5d0000;
     }
 
     .monster {
-        background-color: #522e2c;
+        background-color: #5d0000;
     }
 </style>

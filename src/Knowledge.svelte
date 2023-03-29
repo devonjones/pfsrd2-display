@@ -1,5 +1,5 @@
 <script>
-    function format_skills(knowledge) {
+    function format_knowledge_skills(knowledge) {
         if (knowledge.skills) {
             let skill_list = []
             for (let skill of knowledge.skills) {
@@ -17,7 +17,7 @@
 
 <knowledge>
     {#each knowledges as knowledge}
-        <b>{knowledge.name}</b> {format_skills(knowledge)} DC {knowledge.dc};&nbsp;
+        <b>{knowledge.name}</b> {format_knowledge_skills(knowledge)} DC {knowledge.dc};&nbsp;
     {/each}
 </knowledge>
 

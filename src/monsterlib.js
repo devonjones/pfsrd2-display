@@ -41,8 +41,15 @@ export function format_saving_throw(obj) {
 
 export function format_traits(traits) {
     if (traits) {
-        let traitstext = " (" + traits.map(x => x.name).join(", ") + ")"
-        return traitstext;
+        let trait_list = [];
+        for (let trait of traits) {
+            let trait_text = trait.name
+            if (trait.value) {
+                trait_text += " " + trait.value
+            }
+            trait_list.push(trait_text)
+        }
+        return " (" + trait_list.join(", ") + ")";
     }
     return "";
 }
@@ -61,6 +68,7 @@ export function format_number(value) {
 
 export function format_damage(damage) {
     // TODO: Links
+
     if (damage) {
         let damage_list = [];
         for (let d of damage) {

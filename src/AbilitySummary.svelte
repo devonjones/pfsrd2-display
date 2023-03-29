@@ -5,6 +5,7 @@
         // Hitpoints: ability_type, links, modifiers, name, subtype, type, value
         // Languages: ability_type, links, modifiers, name, subtype, type
         // TODO: Links
+
         let ability_text = ability.name + " ";
         if (ability.value) {
             ability_text += ability.value + " ";
@@ -23,11 +24,10 @@
     }
 
     export let abilities;
-    let abilities_text = format_abilities(abilities);
 </script>
 
 <abilities>
-    {abilities_text}<br>
+    {format_abilities(abilities)}<br>
 </abilities>
 
 <style>

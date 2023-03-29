@@ -33,7 +33,8 @@
     }
 
     function format_protections(protections) {
-        // TODO: Handle Links
+        // TODO: Link
+
         let protection_list = []
         if (protections) {
             for (let protection of protections) {
@@ -49,34 +50,28 @@
     }
 
     export let hp;
-    let hp_text = format_hp(hp);
-    let threshold_text = format_thresholds(hp.thresholds);
-    let hardness_text = format_hardness(hp.hardness);
-    let immunities_text = format_protections(hp.immunities)
-    let resistances_text = format_protections(hp.resistances)
-    let weaknesses_text = format_protections(hp.weaknesses)
 </script>
 
 <hitpoints>
-    <b>HP</b> {hp_text};
+    <b>HP</b> {format_hp(hp)};
     {#if hp.automatic_abilities}
         &nbsp;<AbilitySummary abilities={hp.automatic_abilities}/>;
     {/if}
 
     {#if hp.thresholds}
-        <b>Thresholds</b> {threshold_text};
+        <b>Thresholds</b> {format_thresholds(hp.thresholds)};
     {/if}
     {#if hp.hardness}
-        <b>Hardness</b> {hardness_text};
+        <b>Hardness</b> {format_hardness(hp.hardness)};
     {/if}
     {#if hp.immunities}
-        <b>Immunities</b> {immunities_text};
+        <b>Immunities</b> {format_protections(hp.immunities)};
     {/if}
     {#if hp.resistances}
-        <b>Resistances</b> {resistances_text};
+        <b>Resistances</b> {format_protections(hp.resistances)};
     {/if}
     {#if hp.weaknesses}
-        <b>Weaknesses</b> {weaknesses_text};
+        <b>Weaknesses</b> {format_protections(hp.weaknesses)};
     {/if}
 </hitpoints>
 

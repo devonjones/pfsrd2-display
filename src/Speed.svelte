@@ -3,7 +3,12 @@
 
     function format_speed(speed) {
         // TODO: Link
-        let speed_text = speed.movement_type + " " + speed.value + " feet";
+
+        let speed_text = "";
+        if (speed.movement_type != "walk") {
+            speed_text += speed.movement_type + " "
+        }
+        speed_text += speed.value + " feet";
         speed_text += format_modifiers(speed)
         return speed_text;
     }
@@ -21,12 +26,10 @@
     }
 
     export let speeds;
-    let speed_text = format_speeds(speeds);
-    let modifiers_text = format_modifiers(speeds, false)
 </script>
 
 <speed>
-    <b>Speed</b> {speed_text}; {modifiers_text}
+    <b>Speed</b> {format_speeds(speeds)}; {format_modifiers(speeds, false)}
 </speed>
 
 <style>

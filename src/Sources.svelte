@@ -1,12 +1,23 @@
 <script>
+    function format_errata(errata) {
+        // TODO: alt
+        // TODO: game-obj
+        // TODO: aonid
+
+        let errata_text = "";
+        if (errata) {
+            errata_text += "<sup>" + errata.name + "</sup>"
+        }
+        return errata_text
+    }
+
     function format_source(source) {
         // TODO: Link
+
         let source_text = source.name;
+        source_text += format_errata(source.errata)
         if (source.page) {
             source_text += " pg. " + source.page
-        }
-        if (source.errata) {
-            source_text += " er. " + source.errata
         }
         return source_text;
     }
@@ -20,11 +31,10 @@
     }
 
     export let sources;
-    let sources_text = format_sources(sources);
 </script>
 
 <sources>
-    <b>Source</b> {sources_text}
+    <b>Source</b> {@html format_sources(sources)}
 </sources>
 
 <style>

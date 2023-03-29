@@ -4,6 +4,7 @@
 
     function format_language(language) {
         // TODO: Link
+
         let language_text = language.name;
         language_text += format_modifiers(language)
         return language_text;
@@ -11,6 +12,7 @@
 
     function format_languages(languages) {
         // TODO: Link
+        
         if (languages.languages) {
             let languages_list = [];
             for (let language of languages.languages) {
@@ -24,11 +26,10 @@
     }
 
     export let languages;
-    let languages_text = format_languages(languages);
 </script>
 
 <languages>
-    <b>Languages</b> {languages_text};
+    <b>Languages</b> {format_languages(languages)};
     {#if languages.communication_abilities}
         <AbilitySummary abilities={languages.communication_abilities}/>
     {/if}

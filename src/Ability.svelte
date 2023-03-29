@@ -4,6 +4,7 @@
 
     function format_ability(ability) {
         // TODO: Links
+        
         let ability_text = ""
         let textlist = []
         if (ability.range) {
@@ -26,13 +27,11 @@
     }
 
     export let ability;
-    let abilities_text = format_ability(ability);
-    let traits_text = format_traits(ability.traits);
 </script>
 
 <ability>
-    <b>{ability.name}</b>{#if ability.action}<Action action={ability.action}/>{/if}{traits_text}
-    {abilities_text}
+    <b>{ability.name}</b>{#if ability.action}<Action action={ability.action}/>{/if}{format_traits(ability.traits)}
+    {format_ability(ability)}
     {#if ability.requirement}
         <b>Requirements</b> {format_text_semi(ability.requirement)}
     {/if}

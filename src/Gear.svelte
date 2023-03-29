@@ -2,7 +2,8 @@
 	import {format_modifiers} from './monsterlib';
 
     function format_item(item) {
-        // TODO: Link
+        // TODO: Links
+        
         let item_text = item.name;
         item_text += format_modifiers(item)
         return item_text;
@@ -17,11 +18,10 @@
     }
 
     export let gear;
-    let gear_text = format_gear(gear)
 </script>
 
 <gear>
-    <b>Items</b> {gear_text}
+    <b>Items</b> {format_gear(gear)}
 </gear>
 
 <style>

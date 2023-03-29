@@ -14,13 +14,11 @@
 
 
     export let affliction;
-    let affliction_text = format_affliction(affliction);
-    let traits_text = format_traits(affliction.traits);
 </script>
 
 <affliction>
-    <b>{affliction.name}</b>{#if affliction.action}<Action action={affliction.action}/>{/if}{traits_text}
-    {affliction_text}
+    <b>{affliction.name}</b>{#if affliction.action}<Action action={affliction.action}/>{/if}{format_traits(affliction.traits)}
+    {format_affliction(affliction)}
     {#if affliction.requirements}
         <b>Requirements</b> {format_text_semi(affliction.requirements)}
     {/if}
