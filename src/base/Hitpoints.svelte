@@ -1,5 +1,6 @@
 <script>
-	import {format_modifiers, format_number} from './monsterlib';
+	import {format_modifiers} from './monsterlib';
+    import {markdown_inline} from '../markdown/markdown';
     import AbilitySummary from './AbilitySummary.svelte'
 
     function format_hp(hp) {
@@ -42,6 +43,7 @@
                 if (protection.value) {
                     text += " " + protection.value
                 }
+                text = markdown_inline(text)
                 text += format_modifiers(protection)
                 protection_list.push(text)
             }
@@ -65,13 +67,13 @@
         <b>Hardness</b> {format_hardness(hp.hardness)};
     {/if}
     {#if hp.immunities}
-        <b>Immunities</b> {format_protections(hp.immunities)};
+        <b>Immunities</b> {@html format_protections(hp.immunities)};
     {/if}
     {#if hp.resistances}
-        <b>Resistances</b> {format_protections(hp.resistances)};
+        <b>Resistances</b> {@html format_protections(hp.resistances)};
     {/if}
     {#if hp.weaknesses}
-        <b>Weaknesses</b> {format_protections(hp.weaknesses)};
+        <b>Weaknesses</b> {@html format_protections(hp.weaknesses)};
     {/if}
 </hitpoints>
 
@@ -80,6 +82,9 @@
         color: #c8bf8f;
     }
 
+    li {
+        text-indent: -15px
+    }
 	hitpoints {
 		padding: 1em;
         display: inline-block;

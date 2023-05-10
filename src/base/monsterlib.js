@@ -1,3 +1,5 @@
+import {markdown_inline} from '../markdown/markdown';
+
 export function format_modifiers(obj, parens=true) {
     // TODO: handle links
     if (obj.modifiers) {
@@ -9,7 +11,7 @@ export function format_modifiers(obj, parens=true) {
         if (parens) {
             text += ")"
         }
-        return text
+        return markdown_inline(text)
     }
     return ""
 }
@@ -19,10 +21,14 @@ export function format_text_semi(text) {
     if (outtext.endsWith(".") || outtext.endsWith(";")) {
         outtext = outtext.substring(0, outtext.length-1);
     }
-    return outtext + ";"
+    return markdown_inline(outtext + ";")
 }
 
 export function format_range(obj) {
+    // TODO: Format this manually instead of using text
+    // TODO: range ^
+    // TODO: unit ^
+    // TODO: modifiers ^
     if (obj.range) {
         return " " + obj.range.text
     }
@@ -31,6 +37,9 @@ export function format_range(obj) {
 
 export function format_saving_throw(obj) {
     // TODO: Format this manually instead of using text
+    // TODO: dc ^
+    // TODO: save_type ^
+    // TODO: result ^
     let text = "";
     if (obj.saving_throw) {
         text += " " + obj.saving_throw.text
@@ -40,6 +49,12 @@ export function format_saving_throw(obj) {
 }
 
 export function format_traits(traits) {
+    // TODO: Sources
+    // TODO: game-obj
+    // TODO: game-id
+    // TODO: text
+    // TODO: links
+    // TODO: classes
     if (traits) {
         let trait_list = [];
         for (let trait of traits) {
@@ -101,3 +116,4 @@ export function format_damage(damage) {
 export function capitalize(s) {
     return s[0].toUpperCase() + s.slice(1);
 }
+

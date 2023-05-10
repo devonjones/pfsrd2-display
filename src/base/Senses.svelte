@@ -2,8 +2,6 @@
 	import {format_modifiers, format_range, format_number} from './monsterlib';
 
     function format_perception(perception) {
-        // TODO: Link
-        
         let perception_text = "";
         perception_text += format_number(perception.value)
         perception_text += format_modifiers(perception)

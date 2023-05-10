@@ -1,4 +1,7 @@
 <script>
+    // TODO: offensive_action.name
+    // TODO: offensive_action.offensive_action_type
+
     import Ability from './Ability.svelte';
     import Affliction from './Affliction.svelte';
     import Attack from './Attack.svelte';

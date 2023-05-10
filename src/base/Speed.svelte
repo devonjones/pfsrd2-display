@@ -3,6 +3,7 @@
 
     function format_speed(speed) {
         // TODO: Link
+        // TODO: name (broken out)
 
         let speed_text = "";
         if (speed.movement_type != "walk") {

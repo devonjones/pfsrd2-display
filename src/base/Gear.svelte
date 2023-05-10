@@ -1,10 +1,11 @@
 <script>
 	import {format_modifiers} from './monsterlib';
+    import {markdown_inline} from '../markdown/markdown';
 
     function format_item(item) {
         // TODO: Links
         
-        let item_text = item.name;
+        let item_text = markdown_inline(item.name);
         item_text += format_modifiers(item)
         return item_text;
     }
@@ -21,7 +22,7 @@
 </script>
 
 <gear>
-    <b>Items</b> {format_gear(gear)}
+    <b>Items</b> {@html format_gear(gear)}
 </gear>
 
 <style>

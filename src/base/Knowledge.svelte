@@ -3,7 +3,7 @@
         if (knowledge.skills) {
             let skill_list = []
             for (let skill of knowledge.skills) {
-                // TODO: Link
+                // TODO: skill.link
                 skill_list.push(skill.name);
             }
             return "(" + skill_list.join(", ") + ")";

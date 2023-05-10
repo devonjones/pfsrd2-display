@@ -19,10 +19,10 @@
 </script>
 
 <armor>
-    <b>AC</b> {format_ac(defense.ac)};
-    <b>Fort</b> {format_save(defense.saves.fort)},
-    <b>Ref</b> {format_save(defense.saves.ref)},
-    <b>Will</b> {format_save(defense.saves.will)}; {format_modifiers(defense.saves, false)}
+    <b>AC</b> {@html format_ac(defense.ac)};
+    <b>Fort</b> {@html format_save(defense.saves.fort)},
+    <b>Ref</b> {@html format_save(defense.saves.ref)},
+    <b>Will</b> {@html format_save(defense.saves.will)}; {@html format_modifiers(defense.saves, false)}
 </armor>
 
 <style>

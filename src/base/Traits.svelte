@@ -4,7 +4,6 @@
 
     function short_alignment(aligns) {
         let align = aligns[0]
-        console.log(aligns)
         let newname = "";
         for (let align of aligns) {
             newname += align.name[0]

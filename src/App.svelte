@@ -1,6 +1,6 @@
 <script>
 	import { onMount } from "svelte";
-	import Creature from './Creature.svelte'
+	import Director from './base/Director.svelte'
     const urlParams = new URLSearchParams(window.location.search);
 	const creaturePath = urlParams.get('creature');
 	let creature = {}
@@ -13,12 +13,10 @@
 
 		creature = data;
 	});
-
-	export let name;
 </script>
 
 <main>
-	<Creature creature={creature}/>
+	<Director creature={creature}/>
 </main>
 
 <style>

@@ -1,9 +1,11 @@
 <script>
+    import {markdown_inline} from '../markdown/markdown';
 	import {format_modifiers, format_range, format_damage, format_traits, format_text_semi, format_saving_throw} from './monsterlib';
 	import Action from './Action.svelte'
 
     function format_ability(ability) {
         // TODO: Links
+        // TODO: ability_type
         
         let ability_text = ""
         let textlist = []
@@ -30,37 +32,37 @@
 </script>
 
 <ability>
-    <b>{ability.name}</b>{#if ability.action}<Action action={ability.action}/>{/if}{format_traits(ability.traits)}
-    {format_ability(ability)}
+    <b>{@html ability.name}</b>{#if ability.action}<Action action={ability.action}/>{/if}{format_traits(ability.traits)}
+    {@html format_ability(ability)}
     {#if ability.requirement}
-        <b>Requirements</b> {format_text_semi(ability.requirement)}
+        <b>Requirements</b> {@html format_text_semi(ability.requirement)}
     {/if}
     {#if ability.cost}
-        <b>Cost</b> {format_text_semi(ability.cost)}
+        <b>Cost</b> {@html format_text_semi(ability.cost)}
     {/if}
     {#if ability.prerequisite}
-        <b>Prerequisites</b> {format_text_semi(ability.prerequisite)}
+        <b>Prerequisites</b> {@html format_text_semi(ability.prerequisite)}
     {/if}
     {#if ability.frequency}
-        <b>Frequency</b> {format_text_semi(ability.frequency)}
+        <b>Frequency</b> {@html format_text_semi(ability.frequency)}
     {/if}
     {#if ability.trigger}
-        <b>Trigger</b> {format_text_semi(ability.trigger)}
+        <b>Trigger</b> {@html format_text_semi(ability.trigger)}
     {/if}
     {#if ability.effect}
-        <b>Effect</b> {format_text_semi(ability.effect)}
+        <b>Effect</b> {@html format_text_semi(ability.effect)}
     {/if}
     {#if ability.critical_success}
-        <br/><b>Critical Success</b> {ability.critical_success}
+        <br/><b>Critical Success</b> {@html markdown_inline(ability.critical_success)}
     {/if}
     {#if ability.success}
-        <br/><b>Success</b> {ability.success}
+        <br/><b>Success</b> {@html markdown_inline(ability.success)}
     {/if}
     {#if ability.failure}
-        <br/><b>Failure</b> {ability.failure}
+        <br/><b>Failure</b> {@html markdown_inline(ability.failure)}
     {/if}
     {#if ability.critical_failure}
-      <br/><b>Critical Failure</b> {ability.critical_failure}
+      <br/><b>Critical Failure</b> {@html markdown_inline(ability.critical_failure)}
     {/if}
 </ability>
 
@@ -69,7 +71,7 @@
         color: #c8bf8f;
     }
 
-	ability {
+    ability {
 		padding: 1em;
         display: inline-block;
         text-align: left;

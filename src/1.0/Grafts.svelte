@@ -1,5 +1,5 @@
 <script>
-	import {format_modifiers} from './monsterlib';
+	import {format_modifiers} from '../base/monsterlib';
 
     function format_graft(graft) {
         // TODO: Link
